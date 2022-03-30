@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:p="http://www.springframework.org/schema/p"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/util
+	 http://www.springframework.org/schema/util/spring-util.xsd">
+	 
+	 <!-- this is our beans -->
+	 <!-- Standalone list -->
+	<!--  <util:list list-class="java.util.LinkedList" id="bestfrnds" > -->
+	 <util:list list-class="java.util.Vector" id="bestfrnds" >
+	 	<value>Ram</value>
+	 	<value>Shyam</value>
+	 	<value>Geeta</value>
+	 	<value>Seeta</value>
+	 </util:list>
+	 
+	 <!-- Standalone Set -->
+	 <util:set set-class="java.util.HashSet" id="phonenos">
+	 	<value>1234</value>
+	 	<value>2345</value>
+	 	<value>3456</value>
+	 	<value>4567</value>
+	 </util:set>
+	 
+	 <!-- Standalone Map -->
+	 <util:map map-class="java.util.HashMap" id="coursesavail">
+	 	<entry key="Ram" value="RubyOnRails" />
+	 	<entry key="Shyam" value="Python" />
+	 	<entry key="Seeta" value="Java" />
+	 	<entry key="Geeta" value="Go lang" />
+	 </util:map>
+	 
+	 <!-- Standalone Properties -->
+	 <util:properties id="dbconfig">
+	 	<prop key="driver">driver.com.mysql.database</prop>
+	 	<prop key="username">Admin</prop>
+	 	<prop key="password">pass</prop>
+	 	<prop key="url">mysql:jdbc://localhost:3306/database</prop>
+	 </util:properties>
+	 
+	 
+	<!-- These standalone collections can be used by any of beans by using its reference -->
+	
+	 <!-- Standalone Collections which can be used by any of bean -->
+	 <bean class="com.springcore.standalone.collections.Person" name="friends" p:friends-ref="bestfrnds" p:phones-ref="phonenos" p:courses-ref="coursesavail" p:props-ref="dbconfig">
+	 
+	 </bean>
+ 
+ 
+ </beans>

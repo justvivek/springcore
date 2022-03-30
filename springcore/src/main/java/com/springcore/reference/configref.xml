@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:p="http://www.springframework.org/schema/p"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/util
+	 http://www.springframework.org/schema/util/spring-util.xsd">
+	 
+	 <!-- this is our beans -->
+	 
+	 <bean class="com.springcore.reference.Student" name="student1">
+	 	<property name="name" value="Ram" />
+	 	<property name="id" value="1234" />
+	 </bean>
+	 
+	 <!-- 1. Using ref as a element -->
+<!-- 	 <bean class="com.springcore.reference.University" name="Univer">
+		<property name="name"  value="Amity"/>
+		<property name="student">
+			<ref bean="student1"/>
+		</property>	 
+	 </bean>
+	  -->
+	  
+	  <!-- 2. other way of injecting reference Using ref as a attribute -->
+<!-- 	  <bean class="com.springcore.reference.University" name="Univer">
+		<property name="name"  value="Amity"/>
+		<property name="student" ref="student1"/>
+	 </bean> -->
+	 
+	   <!-- 3. Using P Schema  -->
+	  <bean class="com.springcore.reference.University" name="Univer" p:name="Amity" p:student-ref="student1"/>
+ 
+ 
+ </beans>

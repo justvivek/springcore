@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:p="http://www.springframework.org/schema/p"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/util
+	 http://www.springframework.org/schema/util/spring-util.xsd">
+	 
+	 <!-- this is our beans -->
+ 	<!-- Value as Tag -->
+ 	 <bean class="com.springcore.autowire.Address" name="address1" p:street="SN" p:city="DEL"/>
+ 	 
+ 	 <bean class="com.springcore.autowire.Address" name="address" p:street="MGRoad" p:city="BLR"/>
+ 	 
+ 	 <!-- Autowiring byName (Name of Address ref in Emp class and name of bean in xml should match ) -->
+ 	 <bean class="com.springcore.autowire.Emp" name="emp1" autowire="byName"/>
+ 
+ 		<!-- Autowiring byType here by type will search in xml and then inject into Emp class, if we have 
+ 		more than 1 bean of same type then will get error -->
+<!--  	 <bean class="com.springcore.autowire.Emp" name="emp2" autowire="byType"/>  -->
+ 	 
+ 	 <!-- Autowiring by constructor, here will also check by name and parameterized constructor will be called-->
+ 	 <bean class="com.springcore.autowire.Emp" name="emp2" autowire="constructor"/> 
+ 	  </beans>

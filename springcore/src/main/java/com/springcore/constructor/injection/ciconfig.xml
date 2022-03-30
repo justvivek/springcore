@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:p="http://www.springframework.org/schema/p"
+	 xmlns:c="http://www.springframework.org/schema/c"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/util
+	 http://www.springframework.org/schema/util/spring-util.xsd">
+	 
+	 <!-- this is our beans -->
+	 
+	 <!-- If there is ambiguity we can use type construct to tell type of variable it is
+	  otherwise IOC container is intelligent enough to identify the type of variable -->
+	  
+	  <!-- Using setter Injection using P(properties) Schema Need default constructor for this one to work -->
+	 <bean class="com.springcore.constructor.injection.Certi" name="certi" p:name="Python Certificate" />
+	
+	<!-- Using constructor injection using C Schema -->
+	<bean class="com.springcore.constructor.injection.Certi" name="certi1" c:name="Java Certificate" />
+	
+	<!-- Using contructor-arg tag doing constructor injection -->
+	<bean class="com.springcore.constructor.injection.Person" name="person1">
+		<constructor-arg value="1234" type="int" />
+		<constructor-arg value="Ram" type="String" />
+		<constructor-arg name="courses">
+			<list>
+				<value>JAVA</value>
+				<value>PYHTON</value>
+				<value>KOTLIN</value>
+				<value>WEB</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg ref="certi1"/>
+	</bean> 
+	
+	<!-- Using constructor injection using C(constructor) Schema -->
+	<bean class="com.springcore.constructor.injection.Person" name="person2" c:id="23445" c:name="Shyam" c:courses="JAVA,PYTHON, ANDROID, KOTLIN"  c:cert-ref="certi"/>
+	
+	
+ 
+ </beans>

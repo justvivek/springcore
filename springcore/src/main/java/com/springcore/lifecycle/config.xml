@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:p="http://www.springframework.org/schema/p"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/util
+	 http://www.springframework.org/schema/util/spring-util.xsd">
+	 
+	 <!--  To enable all the Annotation in our project -->
+	 
+	 <context:annotation-config />
+	 
+	 <!-- this is our beans -->
+ 	<!-- Value as Tag -->
+<!--  	<bean class="com.springcore.lifecycle.FoodItem" name="burger" init-method="init" destroy-method="destroy" p:price="100"/> -->
+ 	
+ 	<!-- We can give any name to init and destroy method in our POJO but signature should remain same public void init() & public void destroy() -->
+ 	<bean class="com.springcore.lifecycle.FoodItem" name="burger" init-method="hey" destroy-method="bye" p:price="100" />
+	
+	<bean class="com.springcore.lifecycle.Shake" name="mango" p:price="40" /> 
+
+	
+	<bean class="com.springcore.lifecycle.Sweet" name="sweet1" p:name="rasbhari"/>
+ 
+ 
+ </beans>
